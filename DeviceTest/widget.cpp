@@ -6,10 +6,21 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
+
 }
 
 Widget::~Widget()
 {
     delete ui;
+}
+
+void Widget::ReceiveData(const DataStruct& data)
+{
+
+}
+
+void Widget::SendData(const DataStruct& data)
+{
+
 }
 
