@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>newtemplate</class>
+ <widget class="QMainWindow" name="newtemplate">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout"/>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <widget class="QMenu" name="m_menu_newtemplate">
+     <property name="title">
+      <string>新建模板</string>
+     </property>
+     <widget class="QMenu" name="menu_2">
+      <property name="title">
+       <string>通信</string>
+      </property>
+      <addaction name="m_action_TCP"/>
+      <addaction name="separator"/>
+      <addaction name="m_action_UDP"/>
+      <addaction name="separator"/>
+      <addaction name="m_action_serialport"/>
+     </widget>
+     <widget class="QMenu" name="menu_3">
+      <property name="title">
+       <string>滤波</string>
+      </property>
+      <addaction name="actiongao"/>
+     </widget>
+     <addaction name="menu_2"/>
+     <addaction name="separator"/>
+     <addaction name="menu_3"/>
+     <addaction name="separator"/>
+     <addaction name="m_action_save"/>
+     <addaction name="separator"/>
+     <addaction name="m_action_plot"/>
+     <addaction name="separator"/>
+     <addaction name="m_action_impedance"/>
+     <addaction name="separator"/>
+     <addaction name="m_action_other"/>
+    </widget>
+    <addaction name="m_menu_newtemplate"/>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="m_action_save">
+   <property name="text">
+    <string>保存</string>
+   </property>
+  </action>
+  <action name="m_action_plot">
+   <property name="text">
+    <string>绘图</string>
+   </property>
+  </action>
+  <action name="m_action_impedance">
+   <property name="text">
+    <string>阻抗</string>
+   </property>
+  </action>
+  <action name="m_action_other">
+   <property name="text">
+    <string>其他</string>
+   </property>
+  </action>
+  <action name="m_action_TCP">
+   <property name="text">
+    <string>TCP</string>
+   </property>
+  </action>
+  <action name="m_action_UDP">
+   <property name="text">
+    <string>UDP</string>
+   </property>
+  </action>
+  <action name="m_action_serialport">
+   <property name="text">
+    <string>串口</string>
+   </property>
+  </action>
+  <action name="actiongao">
+   <property name="text">
+    <string>高通滤波</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

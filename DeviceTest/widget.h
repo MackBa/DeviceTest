@@ -2,12 +2,13 @@
 #define WIDGET_H
 
 #include <QWidget>
-#include "baseclass.h"
+#include "newtemplate.h"
+#include "readtemplate.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
 
-class Widget : public QWidget,public BaseClass
+class Widget : public QWidget
 {
     Q_OBJECT
 
@@ -15,11 +16,15 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
-public:
-    void ReceiveData(const DataStruct& data) override;
-    void SendData(const DataStruct& data) override;
+private slots:
+    void on_m_btn_newTemplate_clicked();
+
+    void on_m_btn_readTemplate_clicked();
 
 private:
     Ui::Widget *ui;
+    QMap<QString, QPoint> m_template_position_infos;
+    bool m_is_newtemplate = false;
+
 };
 #endif // WIDGET_H
