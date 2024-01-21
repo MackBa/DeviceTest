@@ -24,6 +24,7 @@ private slots:
 private:
     Ui::Widget *ui;
     QMap<QString, QPoint> m_template_position_infos;
+    QMap<QString, QMap<QString, QString>> m_template_setting_infos;
     bool m_is_newtemplate = false;
 
 };

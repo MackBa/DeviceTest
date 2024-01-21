@@ -37,7 +37,7 @@ void newtemplate::closeEvent(QCloseEvent *event)
         m_template_position_infos[m_but_label->text()] = m_but_label->pos();
 
     }
-    emit m_newtemplate_close(m_template_position_infos);
+    emit m_newtemplate_close(m_template_position_infos,m_template_setting_infos);
     event->accept();
 }
 
@@ -61,7 +61,7 @@ void newtemplate::m_new_lab_template(QMap<QString, QString> m_information)
     m_settingsButton->setIconSize(QSize(29,29));
     m_settingsButton->setGeometry(m_lab_module->width() - 30, m_lab_module->height() - 30, 30, 30);
     m_labels.append(m_lab_module);
-    m_labels_setting_infos.insert(m_rev_information.value("inf1_1"),m_rev_information);
+    m_template_setting_infos.insert(m_rev_information.value("inf1_1"),m_rev_information);
     connect(m_settingsButton,&QPushButton::clicked,this,&newtemplate::m_open_settingDiglog);
     m_lab_module->show();
 }
@@ -78,7 +78,7 @@ void newtemplate::m_open_settingDiglog()
     if (m_but_label == nullptr)
         return;
     QString labelText = m_but_label->text();
-    if (m_labels_setting_infos.contains(labelText)) {
+    if (m_template_setting_infos.contains(labelText)) {
         if(labelText == "绘图")
         {
             plotinf m_information(this);
@@ -87,17 +87,17 @@ void newtemplate::m_open_settingDiglog()
                 m_but_label->close();
             });
             connect(&m_information,&plotinf::m_send_information,this,[=](QMap<QString,QString> m_information){
-                QStringList keys = m_labels_setting_infos.keys();
+                QStringList keys = m_template_setting_infos.keys();
                 for (int i = 0; i < keys.size(); ++i) {
                     QString key = keys.at(i);
                     if(key == labelText){
                         key = m_information.value("inf1_1");
-                        m_labels_setting_infos[key] = m_information;
+                        m_template_setting_infos[key] = m_information;
                     }
                 }
                 m_but_label->setText(m_information.value("inf1_1"));
             });
-            emit m_send_information(m_labels_setting_infos[labelText]);
+            emit m_send_information(m_template_setting_infos[labelText]);
             m_information.exec();
         }else{
             information m_information(this);
@@ -106,17 +106,17 @@ void newtemplate::m_open_settingDiglog()
                 m_but_label->close();
             });
             connect(&m_information,&information::m_send_information,this,[=](QMap<QString,QString> m_information){
-                QStringList keys = m_labels_setting_infos.keys();
+                QStringList keys = m_template_setting_infos.keys();
                 for (int i = 0; i < keys.size(); ++i) {
                     QString key = keys.at(i);
                     if(key == labelText){
                         key = m_information.value("inf1_1");
-                        m_labels_setting_infos[key] = m_information;
+                        m_template_setting_infos[key] = m_information;
                     }
                 }
                 m_but_label->setText(m_information.value("inf1_1"));
             });
-            emit m_send_information(m_labels_setting_infos[labelText]);
+            emit m_send_information(m_template_setting_infos[labelText]);
             m_information.exec();
         }
     }
@@ -124,6 +124,31 @@ void newtemplate::m_open_settingDiglog()
 
 void newtemplate::m_delete_template(QString m_delete_inf_text)
 {
+
+}
+
+void newtemplate::m_show_already_template(QMap<QString, QPoint> m_labels_position_infos,QMap<QString, QMap<QString, QString>> m_labels_setting_infos)
+{
+    m_template_position_infos = m_labels_position_infos;
+    m_template_setting_infos = m_labels_setting_infos;
+
+    QStringList keys = m_template_setting_infos.keys();
+    for (int i = 0; i < keys.size(); ++i) {
+        QString key = keys.at(i);
+        MyTemplate *m_lab_module = new MyTemplate(this);
+        m_lab_module->setFixedSize(100,100);
+        m_lab_module->setText(key);
+        m_lab_module->setStyleSheet("background-color: white; border: 1px solid black; padding: 5px;");
+        m_lab_module->setAlignment(Qt::AlignCenter);
+        m_lab_module->move(m_template_position_infos.value(key));
+        QPushButton *m_settingsButton = new QPushButton(m_lab_module);
+        m_settingsButton->setIcon(QIcon(":/res/setting icon.png"));
+        m_settingsButton->setIconSize(QSize(29,29));
+        m_settingsButton->setGeometry(m_lab_module->width() - 30, m_lab_module->height() - 30, 30, 30);
+        m_labels.append(m_lab_module);
+        connect(m_settingsButton,&QPushButton::clicked,this,&newtemplate::m_open_settingDiglog);
+        m_lab_module->show();
+    }
 
 }
 

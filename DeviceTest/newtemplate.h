@@ -27,7 +27,7 @@ public:
     void m_new_lab_template(QMap<QString, QString> m_information);
     void m_open_settingDiglog();
     void m_delete_template(QString m_delete_inf_text);
-    void m_show_already_template();
+    void m_show_already_template(QMap<QString, QPoint> m_labels_position_infos,QMap<QString, QMap<QString, QString>> m_labels_setting_infos);
 public:
     void m_communication_TCP_template();
     void m_communication_UDP_template();
@@ -38,14 +38,14 @@ public:
     void m_impedance_template();
     void m_other_template();
 signals:
-    void m_newtemplate_close(QMap<QString, QPoint> m_labels_position_infos);
+    void m_newtemplate_close(QMap<QString, QPoint> m_labels_position_infos,QMap<QString, QMap<QString, QString>> m_labels_setting_infos);
     void m_send_information(QMap<QString, QString> m_information);
     void m_save_information(QMap<QString, QString> m_information);
 private:
     Ui::newtemplate *ui;
     QMap<QString, QString> m_rev_information;
     QVector<QLabel*> m_labels;
-    QMap<QString, QMap<QString, QString>> m_labels_setting_infos;
+    QMap<QString, QMap<QString, QString>> m_template_setting_infos;
     QMap<QString, QPoint> m_template_position_infos;
 };
 

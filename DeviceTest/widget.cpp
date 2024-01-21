@@ -6,7 +6,6 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
-
 }
 
 Widget::~Widget()
@@ -22,16 +21,21 @@ void Widget::on_m_btn_newTemplate_clicked()
         newtemplate * m_newtemplate = new newtemplate();
         m_newtemplate->show();
         m_is_newtemplate = true;
-        connect(m_newtemplate,&newtemplate::m_newtemplate_close,this,[=](QMap<QString, QPoint> m_labels_position_infos){
+        connect(m_newtemplate,&newtemplate::m_newtemplate_close,this,[=](QMap<QString, QPoint> m_labels_position_infos,QMap<QString, QMap<QString, QString>> m_labels_setting_infos){
             m_template_position_infos = m_labels_position_infos;
+            m_template_setting_infos = m_labels_setting_infos;
             setEnabled(true);
         });
     }else{
         newtemplate * m_newtemplate = new newtemplate();
+        m_newtemplate->m_show_already_template(m_template_position_infos,m_template_setting_infos);
         m_newtemplate->show();
+        connect(m_newtemplate,&newtemplate::m_newtemplate_close,this,[=](QMap<QString, QPoint> m_labels_position_infos,QMap<QString, QMap<QString, QString>> m_labels_setting_infos){
+            m_template_position_infos = m_labels_position_infos;
+            m_template_setting_infos = m_labels_setting_infos;
+            setEnabled(true);
+        });
     }
-
-
 }
 
 
