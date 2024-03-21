@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>filtermodule</class>
+ <widget class="QDialog" name="filtermodule">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>560</width>
+    <height>364</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="2" column="0" colspan="3">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <layout class="QGridLayout" name="gridLayout_5">
+         <item row="0" column="0">
+          <widget class="QPushButton" name="m_btn_lowpass">
+           <property name="text">
+            <string>Lowpass</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QListWidget" name="m_listWidget_lowpass">
+           <property name="currentRow">
+            <number>2</number>
+           </property>
+           <item>
+            <property name="text">
+             <string>15Hz Lowpass</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>30Hz Lowpass</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>55Hz Lowpass</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>70Hz Lowpass</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>100Hz Lowpass</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QGridLayout" name="gridLayout_7">
+         <item row="1" column="0">
+          <widget class="QListWidget" name="m_listWidget_highpass">
+           <property name="currentRow">
+            <number>0</number>
+           </property>
+           <item>
+            <property name="text">
+             <string>0.3Hz Highpass</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>0.5Hz Highpass</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>1Hz Highpass</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>3Hz Highpass</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QPushButton" name="m_btn_highpass">
+           <property name="text">
+            <string>Highpass</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QGridLayout" name="gridLayout_8">
+         <item row="0" column="0">
+          <widget class="QPushButton" name="m_btn_notch">
+           <property name="text">
+            <string>Notch</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QListWidget" name="m_listWidget_notch">
+           <property name="currentRow">
+            <number>0</number>
+           </property>
+           <item>
+            <property name="text">
+             <string>50Hz Notch</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>60Hz Notch</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QGridLayout" name="gridLayout_6">
+         <item row="1" column="0">
+          <widget class="QPushButton" name="m_btn_highpass_impen">
+           <property name="text">
+            <string>Highpass-Impen</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QListWidget" name="m_listWidget_highpass_impen">
+           <item>
+            <property name="text">
+             <string>50Hz Highpass</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>100Hz Highpass</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>150Hz Highpass</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>200Hz Highpass</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item row="3" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="m_btn_sure">
+         <property name="text">
+          <string>确定</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="m_btn_return">
+         <property name="text">
+          <string>返回</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="m_btn_deletemodule">
+         <property name="text">
+          <string>删除</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
